@@ -5,13 +5,6 @@
 # Anyway I got 5 minutes so I wrote this thing.
 # Codes are too simple, therefore no comment marked
 
-#==============================
-# Contact Info
-# z3r0.mhu@gmail.com
-# www.facebook.com/zerouplink
-# Anubis [MSF forum moderator]
-# www.mmsecurity.net/forum
-#==============================
 
 def filter(file):
     print"\n[+] Duplicate Words Remover"
