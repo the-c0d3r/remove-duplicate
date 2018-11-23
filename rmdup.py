@@ -42,10 +42,10 @@ def Convsize(filename):
 
 
 def main(filename):
-    print "[+] Original File Size : %s" % Convsize(filename)
+    print("[+] Original File Size : %s" % Convsize(filename))
 
     start_time = timeit.default_timer()
-    content = [i.replace('\n', '') for i in open(filename).readlines()]
+    content = [i.replace('\n', '') for i in open(filename, encoding="utf-8", errors="ignore").readlines()]
     # generates a list with the words inside wordlist without '\n'
     org_len = len(content)
 
@@ -58,8 +58,8 @@ def main(filename):
     if not org_len == result_len:
         # That means original length and the resultant length is not the same
         # Which means there is duplication
-        print "[+] Processed : [%s] Lines in %s seconds" % (org_len, duration)
-        print "[+] <{:,}> duplicates found".format(org_len - result_len)
+        print("[+] Processed : [%s] Lines in %s seconds" % (org_len, duration))
+        print("[+] <{:,}> duplicates found".format(org_len - result_len))
         # {:,} is a python built-in method to put 'commas' inside an integer
         if overwriteMode:
             newfilename = filename
@@ -69,17 +69,17 @@ def main(filename):
         for i in result:
             newfile.write(i + '\n')
         newfile.close()
-        print "[+] Saved as %s" % newfilename
-        print "[+] New File Size : %s" % (Convsize(newfilename))
+        print("[+] Saved as %s" % newfilename)
+        print("[+] New File Size : %s" % (Convsize(newfilename)))
 
     else:
-        print "[+] Processed : [%s] Lines in %s seconds" % (org_len, duration)
-        print "[+] No Duplicates found"
+        print("[+] Processed : [%s] Lines in %s seconds" % (org_len, duration))
+        print("[+] No Duplicates found")
 
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print "removeduplicate.py wordlist.txt"
+        print("removeduplicate.py wordlist.txt")
     else:
         main(sys.argv[1])
